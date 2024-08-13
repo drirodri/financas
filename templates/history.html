@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<div>
+    <h1> Hello, {{ name }}</h1>
+    <h2> Current cash: {{ cash }}</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Unit value</th>
+                <th>Stack value</th>
+                <th>Date of Transaction</th>
+                <th>Type of Transaction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ stock.unit_value }}</td>
+                <td>{{ stock.stack_value }}</td>
+                <td>{{ stock.date }}</td>
+                <td>{{ stock.action }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+{% endblock %}

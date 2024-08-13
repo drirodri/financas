@@ -1,0 +1,58 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: rgb(179, 208, 255, 0.3)
+}
+
+form[name = index_form]
+{
+    display:flex;
+}
+
+button[name = sell]
+{
+    color:black;
+    background-color: #DFED37;
+    border-color: #DFED37;
+}
+
+button[name = buy]
+{
+    color:black;
+    background-color: #44EE33;
+    border-color: #44EE33;
+}

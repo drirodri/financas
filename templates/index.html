@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<div>
+    <h1> Hello, {{ name }}</h1>
+    <h2> Cash remaining: {{ cash }}</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Current unit value</th>
+                <th>Select shares and action</th>
+                <th>Total value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for portfolio in portfolios %}
+            <tr>
+                <td>{{ portfolio.symbol }}</td>
+                <td>{{ portfolio.shares }}</td>
+                <td>{{ portfolio.current_value }}</td>
+                <td>
+                    <form action="/sell" method="post" name="index_form" class="form-inline">
+                        <input type="hidden" name="symbol" value="{{ portfolio.symbol }}">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" type="number" name="shares" placeholder="Shares" min="1" required>
+                        <button name="sell" type="submit" class="btn btn-primary mx-auto">Sell</button>
+                    </form>
+                    <form action="/buy" method="post" name="index_form" class="form-inline">
+                        <input type="hidden" name="symbol" value="{{ portfolio.symbol }}">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" type="number" name="shares" placeholder="Shares" min="1" required>
+                        <button name="buy" type="submit" class="btn btn-primary mx-auto">Buy</button>
+                    </form>
+                </td>
+                <td>{{ portfolio.total_value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="text-end fw-bold" colspan="4">Sum</td>
+                <td>{{ sum_value }}</td>
+            </tr>
+            <tr>
+                <td class="text-end fw-bold" colspan="4">Cash</td>
+                <td>{{ cash }}</td>
+            </tr>
+            <tr>
+                <td class="text-end fw-bold" colspan="4">TOTAL</td>
+                <td class="fw-bold">{{ total_sum }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}
